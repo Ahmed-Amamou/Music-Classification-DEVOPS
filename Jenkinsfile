@@ -10,8 +10,8 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/koukaa-500/MusicClassifier.git',
-                        credentialsId: "1"
+                        url: 'https://github.com/Ahmed-Amamou/Music-Classification-DEVOPS.git',
+                        credentialsId: "music-CLassification"
                     ]]
                 ])
             }
@@ -58,8 +58,8 @@ pipeline {
              steps {
                 script {
                 // Login to Docker Hub using the credentials stored in Jenkins
-                withCredentials([string(credentialsId: 'DockerHubAccessToken', variable: 'DOCKER_TOKEN')]) {
-                    bat 'echo %DOCKER_TOKEN% | docker login -u ahmedamamou --password-stdin'
+                withCredentials([usernamePassword(credentialsId: 'DockerHubAccessToken', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                 }
 
                 // Tag and push Docker images
