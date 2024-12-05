@@ -86,13 +86,13 @@ pipeline {
         
       
 //     }
-    post {
-        success {
-            echo 'All images built, tagged, and pushed successfully.'
-        }
-        failure {
-            echo 'Pipeline failed.'
-        }
-    }
+    // post {
+    //     success {
+    //         echo 'All images built, tagged, and pushed successfully.'
+    //     }
+    //     failure {
+    //         echo 'Pipeline failed.'
+    //     }
+    // }
 }
 }
