@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     dir('frontend') {
-                        sh 'docker build -t front .'
+                        sh 'sudo docker build -t front .'
                     }
                 }
             }
