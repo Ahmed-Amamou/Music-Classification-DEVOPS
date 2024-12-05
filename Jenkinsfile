@@ -16,15 +16,15 @@ pipeline {
                 ])
             }
         }
-//         stage('Build Frontend') {
-//             steps {
-//                 script {
-//                     dir('frontend') {
-//                         sh 'docker build -t front .'
-//                     }
-//                 }
-//             }
-//         }
+        stage('Build Frontend') {
+            steps {
+                script {
+                    dir('frontend') {
+                        sh 'docker build -t front .'
+                    }
+                }
+            }
+        }
 //         stage('Build SVM') {
 //             steps {
 //                 script {
