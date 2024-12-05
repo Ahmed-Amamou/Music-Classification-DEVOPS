@@ -54,24 +54,24 @@ pipeline {
 //         //         }
 //         //     }
 //         // }
-//         stage('Push Docker Images') {
-//              steps {
-//                 script {
-//                 // Login to Docker Hub using the credentials stored in Jenkins
-//                 withCredentials([usernamePassword(credentialsId: 'DockerHubAccessToken', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-//                 sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-//                 }
+        stage('Push Docker Images') {
+             steps {
+                script {
+                // Login to Docker Hub using the credentials stored in Jenkins
+                withCredentials([usernamePassword(credentialsId: 'DockerHubAccessToken', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                }
 
-//                 // Tag and push Docker images
-//                 sh 'docker tag front ahmedamamou/frontend:latest'
-//                 sh 'docker tag svm ahmedamamou/svm_image:latest'
-//                 sh 'docker tag vgg19 ahmedamamou/vgg19_image:latest'
-//                 sh 'docker push ahmedamamou/frontend:latest'
-//                 sh 'docker push ahmedamamou/svm_image:latest'
-//                 sh 'docker push ahmedamamou/vgg19_image:latest'
-//                 }
-//              }
-//         }
+                // Tag and push Docker images
+                sh 'docker tag front ahmedamamou/frontend:latest'
+                sh 'docker tag svm ahmedamamou/svm_image:latest'
+                sh 'docker tag vgg19 ahmedamamou/vgg19_image:latest'
+                sh 'docker push ahmedamamou/frontend:latest'
+                sh 'docker push ahmedamamou/svm_image:latest'
+                sh 'docker push ahmedamamou/vgg19_image:latest'
+                }
+             }
+        }
 
 //         stage('Test'){
 //             steps{
